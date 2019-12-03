@@ -1,0 +1,68 @@
+<h2 class="texttitle">Usuarios</h2>
+<button class="btn btn-success mb-2" (click)="menucrear()" class="btnadd"><img src="../../../assets/add.png" style="height: 50px;" alt=""></button>
+<form #searchForm="ngForm" class="form-inline" (ngSubmit)="buscar()">
+    <div class="form-group">
+        <label for="inputPassword2" class="labelstext">Buscar alumno</label>
+        <input type="text" class="editlabels" id="inputPassword2" #name="ngModel" [(ngModel)]="busqueda" [ngModelOptions]="{standalone: true}"required placeholder="Nombre / Carrera">
+      </div>
+    <button type="submit" class="btnsearch"><img src="../../../assets/lupa.png" style="height: 30px;" alt=""></button>
+</form>
+<div *ngIf="users">
+    <div class="tablacards" style="width: 100%">
+        <div class="cardusers" *ngFor="let user of users">
+
+            <h5 class="card-title" style="color: white">{{user.nombre}} {{user.apellidos}}</h5>
+            <h6 class="card-subtitle mb-2 " style="color: white">{{user.carrera}}</h6>
+            <p class="card-text" style="color: white">Edad: {{user.edad}} Dirección {{user.direccion}}</p>
+            <button type="button" class="btnedit" (click)="editUser(user.id)"><img src="../../../assets/editar.png" style="height: 40px;" alt=""></button>
+            <button type="button" class="btndelet" (click)="deleteUser(user.id)"><img src="../../../assets/borrar.png" style="height: 40px;" alt=""></button>
+
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="edit == 'true' && user">
+    <h2>Editar Alumno</h2>
+
+    <form #editForm="ngForm" (ngSubmit)="editNow()" class="col-lg-12">
+        <p>
+            <label>Nombre</label>
+            <input type="text" name="nombre" placeholder="" #nombre="ngModel" [(ngModel)]="user.nombre" class="form-control"
+                required>
+        </p>
+
+        <p>
+            <label>Apellidos</label>
+            <input type="text" name="apellido" #apellido="ngModel" [(ngModel)]="user.apellidos" class="form-control" required>
+        </p>
+
+        <p>
+            <label>edad</label>
+            <input type="text" name="edad" #edad="ngModel" [(ngModel)]="user.edad" class="form-control"
+                required>
+        </p>
+        <p>
+            <label>sexo</label>
+            <input type="text" name="sexo" #sexo="ngModel" [(ngModel)]="user.sexo" class="form-control"
+                required>
+        </p>
+        <p>
+            <label>dirección</label>
+            <input type="text" name="direccion" #direccion="ngModel" [(ngModel)]="user.direccion" class="form-control"
+                required>
+        </p>
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Carreras
+            </button>
+            <div class="dropdown-menu" *ngIf="carreras">
+                <p class="dropdown-item" *ngFor="let carrera of carreras" (click)="setCarrera(carrera.id)">{{carrera.nombre_carrera}}</p>
+            </div>
+        </div>
+
+        <input type="submit" value="Editar" class="btn btn-success">
+    </form>
+
+</div>

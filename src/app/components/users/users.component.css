@@ -1,0 +1,53 @@
+.btnedit{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007CFF;
+    border-radius: 6px;
+}
+.btnedit:hover{
+    background-color: #009BFF;
+}
+.btndelet{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #FF0000;
+    border-radius: 6px;
+}
+.btndelet:hover{
+    background-color: #FF2525;
+}
+.btnsearch{
+    margin-left: 20px;
+    background-color: #727272;
+    border-radius: 6px;
+}
+.btnsearch:hover{
+    background-color: #AFAFAF;
+}
+.btnadd{
+    margin-left: 20px;
+    background-color: #7EE700;
+    border-radius: 6px;
+}
+.btnadd:hover{
+    background-color: #8BFF00;
+}
+.labelstext{
+    font-size: 26px;
+    padding-right: 20px;
+}
+.editlabels{
+    font-size: 20px;
+    min-width: 160px;
+}
+.cardusers{
+    margin: 10px;
+    padding: 10px;
+	text-align: center;
+	width:30%;
+    border-radius: 20px;
+    background:#222;
+}
+tablacards{
+    display: inline;
+}
