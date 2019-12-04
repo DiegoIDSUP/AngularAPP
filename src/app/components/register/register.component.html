@@ -1,4 +1,6 @@
-<div class="col-lg-5">
+<div class="fondoadd"></div>
+<img src="../../../assets/flag.png" class="Bandera" alt="">
+<div class="cuadroadd">
 
     <!-- <h1 class="h1-strong">{{title}}</h1>
 	<div class="alert alert-success" *ngIf="status == 'success'">
@@ -9,37 +11,38 @@
 		El registro no ha podido completarse, intentalo de nuevo
     </div> -->
 
-    <h2>Crear Alumno</h2>
+    <label class="titleadd">Crear Un Nuevo Alumno</label>
+    <input type="image" src="../../../assets/cerrar.png" class="btnclose"  (click)="backhome()">
 
     <form #registerForm="ngForm" (ngSubmit)="createUser()" class="col-lg-12">
         <p>
-            <label>Nombre</label>
+            <label class="addtext">Nombre</label>
             <input type="text" name="name" #name="ngModel" [(ngModel)]="user.nombre" class="form-control" required>
         </p>
 
         <p>
-            <label>Apellidos</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="user.apellidos" class="form-control" required>
+            <label class="addtext">Apellidos</label>
+            <input class="addlabel" type="text" name="name" #name="ngModel" [(ngModel)]="user.apellidos" class="form-control" required>
         </p>
 
         <p>
-            <label>edad</label>
-            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.edad" class="form-control"
+            <label class="addtext">Edad</label>
+            <input class="addlabel" type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.edad" class="form-control"
                 required>
         </p>
         <p>
-            <label>sexo</label>
-            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.sexo" class="form-control"
+            <label class="addtext">Sexo</label>
+            <input class="addlabel" type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.sexo" class="form-control"
                 required>
         </p>
         <p>
-            <label>dirección</label>
-            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.direccion" class="form-control"
+            <label class="addtext">Dirección</label>
+            <input class="addlabel" type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.direccion" class="form-control"
                 required>
         </p>
 
         <div class="btn-group">
-            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            <button type="button" class="btndropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 Carreras
             </button>
@@ -62,7 +65,7 @@
                 required> -->
 
 
-        <input type="submit" value="Agregar" class="btn btn-success">
+        <input type="submit" value="Crear Alumno" class="btncrear">
     </form>
 
 </div>

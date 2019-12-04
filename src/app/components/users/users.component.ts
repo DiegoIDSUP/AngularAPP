@@ -76,6 +76,10 @@ export class UsersComponent implements OnInit {
     this.user.delet = 'false';
   }
 
+  closeEdit(){
+    this.edit = 'false';
+  }
+
   editNow() {
     this.apiService.updateUser(this.item.id, this.user).subscribe(response => {
       console.log(response);

@@ -1,5 +1,13 @@
+.fondohome{
+    width: 100%;
+    min-height:100vh;
+    position: fixed;
+    background-image: url(../../../assets/fondo.jpg);
+    z-index: -6;
+}
 .btnedit{
     margin-top: 10px;
+    margin-right: 10px;
     padding: 10px;
     background-color: #007CFF;
     border-radius: 6px;
@@ -9,12 +17,18 @@
 }
 .btndelet{
     margin-top: 10px;
+    margin-left: 10px;
     padding: 10px;
     background-color: #FF0000;
     border-radius: 6px;
 }
 .btndelet:hover{
     background-color: #FF2525;
+}
+.searchbar{
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 100%;
 }
 .btnsearch{
     margin-left: 20px;
@@ -32,22 +46,91 @@
 .btnadd:hover{
     background-color: #8BFF00;
 }
+.texttitle{
+    font-size: 46px;
+    font-weight: bold;
+    vertical-align: middle;
+}
 .labelstext{
     font-size: 26px;
     padding-right: 20px;
+    font-weight: bold;
+    margin-left: 20px;
 }
 .editlabels{
-    font-size: 20px;
-    min-width: 160px;
+    width: 80%;
+    border-radius: 8px;
+    padding: 5px;
 }
 .cardusers{
     margin: 10px;
-    padding: 10px;
+    padding: 20px;
+    width: 30%;
 	text-align: center;
-	width:30%;
     border-radius: 20px;
-    background:#222;
+    background-image: url(../../../assets/tarjeta.png);
 }
-tablacards{
-    display: inline;
+.tablacards{
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+.editcard{
+    background-image: url(../../../assets/tarjeta2.png);
+    border-radius: 20px;
+    margin-top: 15px;
+    position: fixed;
+    left: 30%;right: 30%;
+    top: 0;
+    padding: 30px;
+}
+.edittext{
+    color: white;
+    margin-top: 10px;
+}
+.editlabel{
+    border-radius: 8px;
+    padding: 5px;
+}
+.btnclose{
+    position: absolute;
+    height: 30px;
+    top: 3%;
+    right: 3%;
+}
+.btnsave{
+    margin-top: 20px;
+    position: absolute;
+    height: 50px;
+    right: 5%;
+}
+.Bandera{
+    width: 100px;
+	position: absolute;
+	right: 2%;top: 0;
+	transform:translate(-2%, 0);
+}
+.btndropdown {
+    margin-top: 20px;
+  background-color: #666;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+    border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.btndropdown:hover {
+  background-color: #888;
+}
+@media(max-width:700px){
+    .cardusers{
+        width: 40%;
+    }
+    .Bandera{
+        width: 80px;
+    }
 }

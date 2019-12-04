@@ -78,6 +78,9 @@ export class RegisterComponent implements OnInit {
 		}
 	); 
   }
+  backhome(){
+  	this._router.navigate(['/home']);
+  }
 
 		
 	

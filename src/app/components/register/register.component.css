@@ -1,0 +1,78 @@
+.fondoadd{
+	width: 100%;
+	min-height:100vh;
+	position: fixed;
+	background-image: url(../../../assets/poli2.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.cuadroadd{
+	position: absolute;
+	top:20px;left: 20%;right: 20%;
+	padding: 20px;
+	border-radius: 8px;
+	background-image: url(../../../assets/tarjeta2.png);
+}
+.titleadd{
+	color: white;
+	font-size: 40px;
+	font-weight: bold;
+}
+.addtext{
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+}
+.btndropdown {
+    margin-top: 20px;
+  background-color: #666;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+    border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.btndropdown:hover {
+  background-color: #888;
+}
+.btncrear{
+    margin-left: 20px;
+    background-color: #08FF00;
+    border: hidden;
+    padding: 16px;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+    font-weight: bold;
+}
+.btncrear a{
+}
+.btncrear:hover{
+    background-color: #64FF00;
+}
+.Bandera{
+    width: 100px;
+	position: absolute;
+	right: 2%;top: 0;
+	transform:translate(-2%, 0);
+}
+.btnclose{
+    position: absolute;
+    height: 30px;
+    top: 3%;
+    right: 3%;
+}
+
+@media(max-width:700px){
+    .btnclose{
+    	top: 2%;
+        right: 4%;
+    }
+    .Bandera{
+        width: 80px;
+    }
+}
