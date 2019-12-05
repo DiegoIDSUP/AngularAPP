@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
           // conseguir token
           this.token = response.key;
           localStorage.setItem('token',this.token);
-          this._router.navigate(['/home']);
+          this._router.navigate(['/inicio']);
 				}
 				
 			},

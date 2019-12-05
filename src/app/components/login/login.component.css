@@ -53,6 +53,9 @@
     .CuadroLogin{
         width: 80%;
     }
+    .Centrar{
+        top:60%;
+    }
 }
 @media(max-width:350px){
     .Bandera{

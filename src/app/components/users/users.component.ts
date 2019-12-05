@@ -57,7 +57,7 @@ export class UsersComponent implements OnInit {
   }
 
   logout(){
-    this._router.navigate(['/login']);
+    this._router.navigate(['/']);
   }
 
   setCarrera(id){

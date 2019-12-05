@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
 		response => {
 			console.log(response);
             
-        this._router.navigate(['/home']);
+        this._router.navigate(['/inicio']);
 		},
 		error => {
 			console.log(<any>error);
@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
 	); 
   }
   backhome(){
-  	this._router.navigate(['/home']);
+  	this._router.navigate(['/inicio']);
   }
 
 		
