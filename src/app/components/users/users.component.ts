@@ -56,6 +56,10 @@ export class UsersComponent implements OnInit {
       this._router.navigate(['/crear']);
   }
 
+  logout(){
+    this._router.navigate(['/login']);
+  }
+
   setCarrera(id){
     this.user.carrera = id;
   }

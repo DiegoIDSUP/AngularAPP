@@ -15,9 +15,10 @@
 	transform:translate(-2%, 0);
 }
 .CuadroLogin{
+	background-image: url(../../../assets/tarjeta2.png);
 	padding: 10px 0px 20px 0px;
+	width: 40%;
 	text-align: center;
-	width:450px;
 	border-radius: 20px;
 }	
 .Centrar{
@@ -39,4 +40,22 @@
 .btncss:hover{
     color: #1883ba;
     background-color: #ffffff;
+}
+@media(max-width:700px){
+    .CuadroLogin{
+        width: 50%;
+    }
+    .Bandera{
+        width: 80px;
+    }
+}
+@media(max-width:450px){
+    .CuadroLogin{
+        width: 80%;
+    }
+}
+@media(max-width:350px){
+    .Bandera{
+        width: 60px;
+    }
 }

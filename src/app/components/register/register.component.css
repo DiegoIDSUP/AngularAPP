@@ -11,6 +11,7 @@
 	position: absolute;
 	top:20px;left: 20%;right: 20%;
 	padding: 20px;
+    margin-bottom: 30px;
 	border-radius: 8px;
 	background-image: url(../../../assets/tarjeta2.png);
 }
@@ -49,8 +50,6 @@
     color: white;
     font-weight: bold;
 }
-.btncrear a{
-}
 .btncrear:hover{
     background-color: #64FF00;
 }
@@ -67,12 +66,37 @@
     right: 3%;
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
     .btnclose{
-    	top: 2%;
+        top: 2%;
         right: 4%;
     }
     .Bandera{
         width: 80px;
+    }
+    .cuadroadd{
+        right: 17%;left: 17%;
+    }
+}
+
+@media(max-width:600px){
+    .Bandera{
+        width: 60px;
+    }
+    .cuadroadd{
+        top: 105px;
+        right: 5%;left: 5%;
+    }
+    .titleadd{
+        font-size: 25px;
+    }
+    .addtext{
+        font-size: 16px;
+    }
+    .btncrear{
+        padding: 5px;
+    }
+    .btndropdown{
+        padding: 5px;
     }
 }

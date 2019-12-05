@@ -1,9 +1,10 @@
 <div class="fondohome"></div>
     <img src="../../../assets/flag.png" class="Bandera" alt="">
+    <img src="../../../assets/logout.png" class="btnlogout" alt="" (click)="logout()">
     <div style="background: #0090F0;padding-top: 20px;padding-bottom: 30px;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;">
-        <div style="text-align: center;width: 100%;margin-bottom: 20px;">
+        <div class="barraadd">
             <label class="texttitle">Usuarios</label>
-            <button class="btn btn-success mb-2" (click)="menucrear()" class="btnadd"><img src="../../../assets/add.png" style="height: 50px;" alt=""></button>
+            <button class="btn btn-success mb-2" (click)="menucrear()" class="btnadd"><img src="../../../assets/add.png" class="imgadd" alt=""></button>
         </div>
         <form #searchForm="ngForm" class="form-inline" (ngSubmit)="buscar()">
             <label for="inputPassword2" class="labelstext">Buscar alumno</label>
@@ -29,7 +30,7 @@
 
     <div *ngIf="edit == 'true' && user">
            <div class="editcard">
-            <label style="font-size: 34px;font-weight: bold;color: white">Editar Alumno</label>
+            <label class="edittitle">Editar Alumno</label>
             <input type="image" src="../../../assets/cerrar.png" class="btnclose"  (click)="closeEdit()">
             <form #editForm="ngForm" (ngSubmit)="editNow()" class="col-lg-12">
                     <label class="edittext">Nombre</label>
