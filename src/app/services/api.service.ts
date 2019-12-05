@@ -15,7 +15,7 @@ export class ApiService {
 
 	constructor(public _http: HttpClient){
 
-		this.url = "http://127.0.0.1:8000/api/v1/"; 
+		this.url = "http://ec2-3-93-25-99.compute-1.amazonaws.com/api/v1/"; 
 	}
 
 
