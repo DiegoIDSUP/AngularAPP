@@ -35,7 +35,7 @@ export class ApiService {
 		//   };
 		let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization','Token '+ this.token);
     	console.log(params);
-		return this._http.post(this.url+'alumno_lista/',params, {headers:headers});
+		return this._http.post(this.url+'listar_alumnos/',params, {headers:headers});
 	}
 
 	
@@ -47,7 +47,7 @@ export class ApiService {
 		let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization','Token '+this.token);
 		console.log(this.token);
 
-		return this._http.get(this.url+'alumno_lista/', {headers:headers});
+		return this._http.get(this.url+'listar_alumnos/', {headers:headers});
 	}
 
 	getUser(id):Observable<any>{
@@ -58,7 +58,29 @@ export class ApiService {
 	updateUser(id, user: User): Observable<any>{
 		let params = JSON.stringify(user);
 		let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization','Token '+ this.token);
-		return this._http.put(this.url+'alumno_detalles/'+id, params, {headers:headers});
+		return this._http.put(this.url+'alumno/'+id, params, {headers:headers});
+	}
+
+	flitrar(nombre:string): Observable<any>{
+
+		this.token = localStorage.getItem('token');
+		console.log(this.token);
+		this.getToken();
+		let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization','Token '+this.token);
+		console.log(this.token);console.log(nombre)
+
+		return this._http.get(this.url+'filtro/'+nombre, {headers:headers});
+	}
+
+	flitrarApellido(nombre:string, apellidos:string): Observable<any>{
+
+		this.token = localStorage.getItem('token');
+		console.log(this.token);
+		this.getToken();
+		let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization','Token '+this.token);
+		console.log(this.token);
+
+		return this._http.get(this.url+'filtro/'+nombre+'/'+apellidos, {headers:headers});
 	}
 
 
@@ -66,7 +88,7 @@ export class ApiService {
 		
 		let params = JSON.stringify(user);
 		let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization','Token '+ this.token);
-		return this._http.put(this.url+'alumno_detalles/'+id,params,{headers:headers});
+		return this._http.put(this.url+'alumno/'+id,params,{headers:headers});
 	}
 
 	getCarreras(): Observable<any>{
@@ -74,7 +96,7 @@ export class ApiService {
 		console.log(this.token);
 		this.getToken();
 		let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization','Token '+ this.token);
-		return this._http.get(this.url+'carrera_lista/', {headers:headers});
+		return this._http.get(this.url+'listar_carreras/', {headers:headers});
 	}
 *
 

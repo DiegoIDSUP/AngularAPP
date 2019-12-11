@@ -6,10 +6,10 @@
             <label class="texttitle">Usuarios</label>
             <button class="btn btn-success mb-2" (click)="menucrear()" class="btnadd"><img src="../../../assets/add.png" class="imgadd" alt=""></button>
         </div>
-        <form #searchForm="ngForm" class="form-inline" (ngSubmit)="buscar()">
+        <form #searchForm="ngForm" class="form-inline" (ngSubmit)="filtrar()">
             <label for="inputPassword2" class="labelstext">Buscar alumno</label>
             <div class="searchbar">
-                <input type="text" class="editlabels" id="inputPassword2" #name="ngModel" [(ngModel)]="busqueda" [ngModelOptions]="{standalone: true}"required placeholder="Nombre / Carrera">
+                <input type="text" class="editlabels" id="inputPassword2" #name="ngModel" [(ngModel)]="busqueda" [ngModelOptions]="{standalone: true}"required placeholder="Nombre / Carrera / Edad">
                 <button type="submit" class="btnsearch"><img src="../../../assets/lupa.png" style="height: 30px;" alt=""></button>
             </div>
         </form>

@@ -33,8 +33,6 @@ export class UsersComponent implements OnInit {
   }
 
   async renameCarreras(){
-    await console.log(this.carreras);
-    console.log(this.users);
     this.users.forEach(async user => {
       console.log(parseInt(user.carrera));
       let index = this.carreras.findIndex(i => i.id === user.carrera);
@@ -42,7 +40,7 @@ export class UsersComponent implements OnInit {
     })
   }
 
-  getCarreras(){
+  async getCarreras(){
     this.apiService.getCarreras().subscribe(async response => {
 		  
       this.carreras = await response;
@@ -108,33 +106,65 @@ export class UsersComponent implements OnInit {
       this.ngOnInit();
     })
   }
-
   busqueda: string;
   usersAux: User[];
-  buscar() {
-    if (this.busqueda == '') {
-      this.ngOnInit();
-    } else {
-      console.log(this.busqueda);
-      let nombres = this.users.filter(users => {
-        return users.nombre.includes(this.busqueda);
+
+  checkfilt(){
+    let nombres =this.busqueda.split(' ')
+    let nombre = nombres[0]
+    let apellido=''
+    console.log('nombre: '+nombre+' / apellido: '+apellido)
+    for (var i = 1; i < nombres.length; i++) {
+      let check = this.users.filter(users => {
+        return users.nombre.includes(nombre+' '+nombres[i]);
       })
-      
-      let edades = this.users.filter(users => {
-        return users.edad.includes(this.busqueda);
-      })
-
-      let carreras = this.users.filter(users => {
-        return users.carrera.includes(this.busqueda);
-      })
-
-
-      console.log(nombres); // [{name: "Nepal", continent: "Asia"}]
-
-      this.usersAux = this.users;
-      this.users = nombres.concat(edades).concat(carreras);
+      if(check.length>0){
+          nombre=nombre+' '+nombres[i];
+      }else{
+        apellido=nombres[i]
+        for (var j = i+1; j < nombres.length; j++){
+            apellido=apellido+' '+nombres[i];
+        }
+        i = nombres.length;
+      }
     }
+    console.log('nombre: '+nombre+' / apellido: '+apellido)
+    if(apellido.length>0){
+        console.log('filtro por apellido')
+        this.filtrarApellidos(nombre,apellido)
+    }else{
+        console.log('filtro')
+        this.filtrar()
+    }
+  }
 
+  async filtrar(){
+    let nombre=await this.busqueda.replace(' ','_')
+    while(nombre.indexOf(' ') != -1){
+      nombre=await nombre.replace(' ','_')
+    }
+    if (nombre == '') {
+      this.ngOnInit();
+    }else{
+      this.apiService.flitrar(nombre).subscribe(async response => {
+        this.users = await response;
+      })
+      this.getCarreras();
+    }
+  }
+
+  filtrarApellidos(nombres,apellidos){
+    while(nombres.indexOf(' ') != -1){
+      nombres=nombres.replace(' ','_')
+    }
+    while(apellidos.indexOf(' ') != -1){
+      apellidos=apellidos.replace(' ','_')
+    }
+    console.log('nombre: '+nombres+' / apellido: '+apellidos)
+    this.apiService.flitrarApellido(nombres,apellidos).subscribe(response => {
+      console.log(response);
+      this.users = response;
+    })
   }
 
 
