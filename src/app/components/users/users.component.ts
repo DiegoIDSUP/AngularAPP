@@ -159,6 +159,9 @@ export class UsersComponent implements OnInit {
 
   createemail(){
     this.msn = 'true';
+    this.asunto=""
+    this.correo=""
+    this.mensaje=""
   }
 
   closeemail(){

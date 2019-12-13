@@ -151,7 +151,7 @@
 }
 .btnsend{
     margin-top: 20px;
-    position: right;
+    margin-left:90%; 
     height: 50px;
     right: 5%;
 }
@@ -162,6 +162,9 @@
     }
     .Bandera{
         width: 80px;
+    }
+    .btnsend{
+        margin-left:80%;
     }
 }
 @media(max-width:500px){
