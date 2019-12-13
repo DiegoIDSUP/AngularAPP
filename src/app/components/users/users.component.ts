@@ -185,9 +185,10 @@ export class UsersComponent implements OnInit {
     console.log(mail)
     console.log('-------------')
     console.log(text)
-    this.apiService.sendEmail(motivo,mail,text).subscribe(async response => {
-        this.users = await response;
+    this.apiService.sendEmail(motivo,mail,text).subscribe( response => {
+        this.users =  response;
       })
+    this.msn = 'false';
   }
 
   filtrarApellidos(nombres,apellidos){
