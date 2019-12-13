@@ -63,19 +63,20 @@ export class UsersComponent implements OnInit {
   }
 
   edit = 'false';
+  msn = 'false';
   item
   editUser(id) {
-    this.edit = 'true';
+      this.edit = 'true';
 
-    this.item = this.users.find(i => i.id === id);
-    let index = this.users.findIndex(i => i.id === id);
-    this.user.nombre = this.users[index].nombre;
-    this.user.apellidos = this.users[index].apellidos;
-    this.user.edad = this.users[index].edad;
-    this.user.direccion = this.users[index].direccion;
-    this.user.carrera = this.users[index].carrera;
-    this.user.sexo = this.users[index].sexo;
-    this.user.delet = 'false';
+      this.item = this.users.find(i => i.id === id);
+      let index = this.users.findIndex(i => i.id === id);
+      this.user.nombre = this.users[index].nombre;
+      this.user.apellidos = this.users[index].apellidos;
+      this.user.edad = this.users[index].edad;
+      this.user.direccion = this.users[index].direccion;
+      this.user.carrera = this.users[index].carrera;
+      this.user.sexo = this.users[index].sexo;
+      this.user.delet = 'false';
   }
 
   closeEdit(){
@@ -151,6 +152,42 @@ export class UsersComponent implements OnInit {
       })
       this.getCarreras();
     }
+  }
+  asunto: string;
+  correo: string;
+  mensaje: string;
+
+  createemail(){
+    this.msn = 'true';
+  }
+
+  closeemail(){
+    this.msn = 'false';
+  }
+  sendmail(){
+    let motivo=this.asunto
+    while(motivo.indexOf(' ') != -1){
+      motivo= motivo.replace(' ','_')
+    }
+    let mail=this.correo
+    while(mail.indexOf('@') != -1){
+      mail= mail.replace('@','arroba')
+    }
+
+    while(mail.indexOf('.') != -1){
+      mail= mail.replace('.','punto')
+    }
+    let text=this.mensaje
+    while(text.indexOf(' ') != -1){
+      text= text.replace(' ','_')
+    }
+    console.log(motivo)
+    console.log(mail)
+    console.log('-------------')
+    console.log(text)
+    this.apiService.sendEmail(motivo,mail,text).subscribe(async response => {
+        this.users = await response;
+      })
   }
 
   filtrarApellidos(nombres,apellidos){

@@ -1,6 +1,7 @@
 <div class="fondohome"></div>
     <img src="../../../assets/flag.png" class="Bandera" alt="">
     <img src="../../../assets/logout.png" class="btnlogout" alt="" (click)="logout()">
+    <img src="../../../assets/correo.png" class="btnmsn" alt="" (click)="createemail()">
     <div style="background: #0090F0;padding-top: 20px;padding-bottom: 30px;border-bottom-left-radius: 8px;border-bottom-right-radius: 8px;">
         <div class="barraadd">
             <label class="texttitle">Usuarios</label>
@@ -26,7 +27,21 @@
             </div>
         </div>
     </div>
-
+    <div *ngIf="msn == 'true' ">
+        <div class="editcard">
+            <form (ngSubmit)="sendmail()" class="col-lg-12">
+                <input type="image" src="../../../assets/cerrar.png" class="btnclose"  (click)="closeemail()">
+                <p><label class="edittitle">Enviar un correo</label></p>
+                <label class="edittext">Asunto</label>
+                <input  type="text" class="editlabel" #name="ngModel" [(ngModel)]="asunto" [ngModelOptions]="{standalone: true}"required class="form-control" required>
+                <label class="edittext">Destinatario</label>
+                <input  type="text" class="editlabel" #name="ngModel" [(ngModel)]="correo" [ngModelOptions]="{standalone: true}"required class="form-control" required>
+                <label class="edittext">Mensaje</label>
+                <textarea type="text" #name="ngModel" [(ngModel)]="mensaje" [ngModelOptions]="{standalone: true}"required class="form-control" style="height: 100px" required></textarea>
+                <input type="image" src="../../../assets/enviar.png" class="btnsend">
+            </form>
+        </div>
+    </div>
 
     <div *ngIf="edit == 'true' && user">
            <div class="editcard">

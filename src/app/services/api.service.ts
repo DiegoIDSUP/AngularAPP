@@ -15,7 +15,7 @@ export class ApiService {
 
 	constructor(public _http: HttpClient){
 
-		this.url = "http://ec2-3-93-25-99.compute-1.amazonaws.com/api/v1/"; 
+		this.url = "http://127.0.0.1:8000/api/v1/"; 
 	}
 
 
@@ -81,6 +81,17 @@ export class ApiService {
 		console.log(this.token);
 
 		return this._http.get(this.url+'filtro/'+nombre+'/'+apellidos, {headers:headers});
+	}
+
+	sendEmail(asunto:string, correo:string, mensaje:string): Observable<any>{
+
+		this.token = localStorage.getItem('token');
+		console.log(this.token);
+		this.getToken();
+		let headers = new HttpHeaders().set('Content-Type','application/json').set('Authorization','Token '+this.token);
+		console.log(this.token);
+
+		return this._http.get(this.url+'correo/'+asunto+'/'+correo+'/'+mensaje, {headers:headers});
 	}
 
 
